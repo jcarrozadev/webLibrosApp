@@ -1,0 +1,160 @@
+body{
+    font-family: Arial, sans-serif;
+    background-color: #f3f3f3;
+    justify-content: center;
+}
+
+/****** TOTAL DE LIBROS ******/
+.añadir{
+    background-color: #474E68;
+    color: #fff;
+    border: none;
+    font-size: 1.5em;
+    width: 3%;
+    height: 6%;
+    float: left; 
+    border-radius: 6%;
+    margin-left: 2%;
+}
+
+.añadir:hover{
+    background-color: #404258;
+}
+
+/* Contenedor del Título y Botones de Filtro/Orden */
+.titulo-y-controles{
+    width: 100%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.tituloTotalLibros{
+    text-align: center;
+    color: #404258;
+    font-size: 1.5em;
+    margin: 0 auto;
+}
+
+.botonesFyO{
+    float: right;
+    display: inline-flex;
+    margin-right: 3%;
+}
+
+.filtrar, .ordenar{
+    background-color: #474E68;
+    color: #fff;
+    margin-right: 10%;
+    font-size: 1.2em;
+    padding: 6%;
+    border: none;
+    border-radius: 5%;
+}
+
+.filtrar:hover, .ordenar:hover{
+    background-color: #404258;
+}
+
+/* Tabla total de libros */
+.tablaLibros{
+    width: 70%;
+    border-collapse: collapse;
+    margin-top: 2%;
+    background-color: #fff;
+    padding: 2%;
+    border: 1px solid #474E68;
+    margin: 0 auto;
+}
+
+.tablaLibros th, .tablaLibros td{
+    padding: 1%;
+    text-align: center;
+    border: 1px solid #474E68;
+    color: #404258;
+}
+
+.tablaLibros th{
+    background-color: #6B728E;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Botones de las tablas*/
+#modificar, #eliminar{
+    padding: 1% 3%;
+    background-color: #6B728E;
+    color: #fff;
+    border: none;
+    font-size: 0.9em;
+    cursor: pointer;
+}
+
+#modificar:hover, #eliminar:hover{
+    background-color: #404258;
+}
+
+
+@media (max-width: 768px) {
+    .añadir{
+        background-color: #474E68;
+        color: #fff;
+        border: none;
+        font-size: 1.5em;
+        width: 5%;
+        height: 4%;
+        float: left; 
+        border-radius: 6%;
+        margin-left: 2%;
+    }
+
+    .botonesFyO{
+        display: block;
+        margin-top: 1%;
+        text-align: center;
+    }
+
+    .filtrar, .ordenar {
+        width: 70%;
+        margin-bottom: 5%;
+        font-size: 1em;
+        padding: 5%;
+        margin-right: 2%;
+    }
+
+    .tablaLibros th, .tablaLibros td {
+        padding: 1.5%;
+    }
+    
+    #modificar, #eliminar {
+        padding: 3%;
+        width: 80%;
+    }
+    
+}
+
+/****** FOOTER ******/
+/* .footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #f2f2f2;
+    padding: 20px 0;
+}
+
+.footer > table {
+    width: 100%;
+    table-layout: fixed;
+}
+
+.footer td {
+    vertical-align: top;
+    padding: 0 20px;
+}
+
+.colaboradores, .cita, .contacto {
+    text-align: left;
+}
+
+.contacto p {
+    margin: 5px 0;
+} */
