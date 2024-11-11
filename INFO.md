@@ -61,7 +61,7 @@ font-family: Nunito;
     table-layout: fixed;
 }
 
-.footer td {
+.footer > table > tr > td {
     vertical-align: top;
     padding: 0 20px;
 }
