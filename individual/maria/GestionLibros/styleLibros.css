@@ -220,6 +220,9 @@ footer > .colaboradores > p > a:hover {
 }
 
 @media (max-width: 1024px) and (min-width: 768px) {
+    body{
+        margin: 0;
+    }
     
     header {
         padding: 1rem 4%;
@@ -234,27 +237,35 @@ footer > .colaboradores > p > a:hover {
         padding: 10px;
     }
     
+    
     .titulo-y-controles{
         width: 100%;
-        text-align: center;
+        margin: 2% auto;
+        position: relative;
+        overflow: hidden;
         text-align: center;
         box-sizing: border-box; 
         padding: 0 1%; 
-        margin: 0 auto;
+
     }
 
     .añadir{
-        width: 20%; 
-        margin-top: 2%;
-        margin-bottom: 1rem;
-        font-size: 2vh; 
-        padding: 8px 16px; 
-        transition: 0.3s;
+        float: left;
+        text-align: center;
+        background-color: var(--color-azul-claro);
+        color: var(--color-blanco);
+        border: none;
+        font-size: 3vh;
+        border-radius: 5px;
+        margin-left: 2%;
+        padding: 10px 20px;
+        cursor: pointer;
     }
 
     .tituloTotalLibros{
         font-size: 2.5vh; 
     }
+
     .filtrar, .ordenar{
         width: 10%;
         margin-left: 0;
