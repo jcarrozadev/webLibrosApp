@@ -88,20 +88,54 @@ nav a:hover {
     transform: scale(1.1);
 }
 
-/* Estilo del contenido principal */
+/* Estilo del contenedor principal */
 .contenido-principal {
-    width: 80%;
-    margin: 3rem auto 2rem auto;
-    padding: 2rem;
-    text-align: left;
-    position: relative;
-    background-color: var(--color-azul-claro);
-    border-radius: 8px;
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    margin: 20px auto;
+}
+
+/* Título principal */
+.contenido-principal h1 {
+    color: var(--color-blanco);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Columnas */
+.seccion-principal {
     display: block;
 }
 
-/* Estilo de la imagen principal */
+.columna-izquierda,
+.columna-central,
+.columna-derecha {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 10px;
+}
+
+.columna-izquierda {
+    width: 50%;
+    margin-right: 1rem;
+}
+
+.columna-central {
+    margin-right: 1rem;
+    width: 20%;
+    height: auto;
+}
+
+.columna-derecha {
+    width: 25%;
+}
+
+/* Estilos de sección principal */
+
+.section-principal{
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
 .imagen-principal {
     width: 30%;
     float: left;
@@ -113,18 +147,14 @@ nav a:hover {
     position: relative;
     top: 1.5rem;
 }
-
-/* Estilo de la sección de texto */
 .seccion-texto {
-    width: 65%;
     background-color: var(--color-azul-oscuro);
     padding: 1rem;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    display: inline-block;
 }
 
-.seccion-texto h1 {
+.seccion-texto h2 {
     font-size: 2rem;
     color: var(--color-acento-azul);
     margin-top: 0;
@@ -146,7 +176,7 @@ nav a:hover {
     color: var(--color-blanco);
     text-decoration: none;
     border-radius: 0.3rem;
-    margin-top: 1rem;
+    margin-top: 2rem;
     font-size: 1rem;
     text-transform: uppercase;
     font-weight: bold;
@@ -156,58 +186,60 @@ nav a:hover {
 .seccion-texto a.enlace-boton:hover {
     background-color: var(--color-azul-claro);
 }
-
-/* Estilo de las tarjetas */
-.tarjetas {
-    text-align: center;
-    padding: 3rem 0;
+/* Estilos de tarjeta secundaria */
+.tarjetas-secundarias .tarjeta {
+    background-color: var(--color-azul-claro);
+    color: var(--color-blanco);
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 10px;
 }
 
-.tarjeta {
-    display: inline-block;
-    width: 60%;
-    max-width: 25rem;
-    height: 32rem;
+.tarjeta-completa:first-child{
+    margin-bottom: 2.5rem;
+}
+
+/* Estilo de tarjetas adicionales */
+.informacion-adicional .tarjeta,
+.tarjeta-completa {
     background-color: var(--color-azul-oscuro);
     color: var(--color-blanco);
-    margin: 1rem;
-    padding: 1rem;
-    border-radius: 8px;
-    vertical-align: top;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.tarjeta:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-}
-
-.imagen-tarjeta img {
+    padding: 10px;
     width: 100%;
-    height: 23rem;
-    background-color: var(--color-azul-claro);
+    display: inline-block;
     border-radius: 10px;
-    padding: 1rem;
+}
+
+/* Estilo de imagen en tarjetas */
+.imagen-tarjeta img {
     display: block;
-    object-fit: cover;
+    width: 100%;
+    height: auto;
 }
 
 .texto-tarjeta h2 {
-    font-size: 1.5rem;
-    margin: 0.5rem 0;
-    font-weight: bold;
+    text-align: center;
+    font-size: 1.2em;
     color: var(--color-acento-azul);
+    margin-bottom: 5px;
 }
 
-.texto-tarjeta p {
-    margin: 0.5rem 0;
-    font-size: 1rem;
-    line-height: 1.5;
+.texto-tarjeta ul {
+    padding-left: 1.5rem;
+    list-style: inside;
+    font-size: 1em;
+    color: var(--color-blanco);
+}
+
+.texto-tarjeta p{
+    padding: 0.2rem;
+    font-size: 1em;
+    color: var(--color-blanco);
 }
 
 /* Estilo del footer */
 footer {
+    position: relative;
     padding: 20px 0;
     width: 100%;
     background-color: var(--color-azul-claro);
@@ -230,7 +262,7 @@ footer > .contacto {
     display: inline-block;
     vertical-align: top;
     padding: 10px;
-    width: 30%; 
+    width: 30%; /* Ajustar si necesitas más o menos espacio para cada sección */
 }
 
 footer > .contacto > p {
@@ -247,42 +279,35 @@ footer > .colaboradores > p > a:hover {
     transition: all 0.6s;
 }
 
-
 /* Media query para pantallas más pequeñas */
 /* Diseño para Tablets */
-@media (max-width: 1310px) and (min-width: 768px) {
+@media (max-width: 1133px) and (min-width: 768px) {
     header {
         padding: 1rem 4%;
     }
 
     /* Contenido principal */
-    .contenido-principal {
-        width: 90%;
-        margin: 2rem auto;
-        padding: 1rem;
-        display: block; 
-    }
-
     .imagen-principal {
+        width: 50%;
+        float: none; 
+        margin: 0 auto 1.5rem; 
+    }
+
+    .imagen-tarjeta img {
+        width: 80%; 
+        margin: 0 auto; 
+    }
+
+    .columna-izquierda,
+    .columna-central,
+    .columna-derecha {
         width: 100%;
-        margin-bottom: 2rem;
+        margin-right: 0;
+        margin-bottom: 1rem;
     }
 
-    .seccion-texto {
-        width: 100%;
-        padding: 1rem;
-    }
-
-    /* Menú de navegación */
-
-    .tarjetas {
-        padding: 2rem 0;
-    }
-
-    .tarjeta {
-        width: 80%;
-        max-width: 20rem;
-        margin: 1rem auto;
+    footer{
+        position: relative;
     }
 
     footer > .colaboradores,
@@ -303,7 +328,6 @@ footer > .colaboradores > p > a:hover {
     }
 }
 
-/* Diseño para Móviles */
 /* Diseño para Móviles */
 @media (max-width: 767px) {
     header {
@@ -337,47 +361,25 @@ footer > .colaboradores > p > a:hover {
         right: 5%;
     }
 
-    /* Contenido principal */
-    .contenido-principal {
-        width: 95%;
-        margin: 1.5rem auto;
-        padding: 1rem;
-        display: block; 
+     /* Contenido principal */
+     .imagen-principal {
+        width: 50%;
+        float: none; 
+        margin: 0 auto 1.5rem; 
     }
 
-    .imagen-principal {
+    .imagen-tarjeta img {
+        width: 80%; 
+        margin: 0 auto; 
+    }
+
+    .columna-izquierda,
+    .columna-central,
+    .columna-derecha {
         width: 100%;
+        margin-right: 0;
         margin-bottom: 2rem;
-    }
-
-
-    .seccion-texto {
-        width: 100%;
-        padding: 0.8rem;
-    }
-
-    .seccion-texto h1 {
-        font-size: 1.5rem;
-    }
-
-    .seccion-texto p {
-        font-size: 0.9rem;
-    }
-
-    .tarjetas {
-        padding: 1.5rem 0;
-    }
-
-    .tarjeta {
-        width: 90%;
-        max-width: 18rem;
-        margin: 1rem auto;
-        padding: 0.8rem;
-    }
-
-    .texto-tarjeta h2 {
-        font-size: 1.2rem;
-    }
+    }  
 
     footer{
         position: relative;
