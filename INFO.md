@@ -70,7 +70,7 @@ font-family: Nunito;
     text-align: left;
 }
 
-.contacto p {
+.contacto > p {
     margin: 5px 0;
 }
 ```
