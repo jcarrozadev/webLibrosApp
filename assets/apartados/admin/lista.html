@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reserva de Libros</title>
+    <!-- IMPORT -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/import.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/lista.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="../resources/logo.png" alt="Logo">
+            </a>
+        </div>
+        <nav>
+            <a href="#">Gestión Stock</a>
+            <a href="#">Gestión Reservas</a>
+            <a href="#">Gestión Libros</a>
+        </nav>
+        <div class="icono-usuario">
+            <a href="login.html">
+                <img src="../resources/login.png" alt="login">
+            </a>
+        </div>
+    </header>
+    <main>
+        <section class="contenido-principal">
+            <div class="seccion-reservas">
+                <h2>Total de reservas</h2>
+                
+                <table class="tabla-reservas">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Apellidos</th>
+                            <th>Correo</th>
+                            <th>Curso</th>
+                            <th>Clase</th>
+                            <th>Libros</th>
+                            <th>Doc</th>
+                            <th>Fecha reserva</th>
+                            <th>Apto</th>
+                            <th>Notificar</th>
+                            <th>Gestionar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Ángel</td>
+                            <td>Guiberteau</td>
+                            <td>ejemplo@mail.com</td>
+                            <td>DAW</td>
+                            <td>2º DAW</td>
+                            <td>Ver</td>
+                            <td><button class="btn-doc">Ver</button></td>
+                            <td>21/12/99</td>
+                            <td><input type="checkbox"></td>
+                            <td><button class="btn-notificar">Notificar</button></td>
+                            <td><button class="btn-gestionar">Gestionar</button></td>
+                        </tr>
+                        <tr>
+                            <td>Ángel</td>
+                            <td>Guiberteau</td>
+                            <td>ejemplo@mail.com</td>
+                            <td>DAW</td>
+                            <td>2º DAW</td>
+                            <td>Ver</td>
+                            <td><button class="btn-doc">Ver</button></td>
+                            <td>21/12/99</td>
+                            <td><input type="checkbox"></td>
+                            <td><button class="btn-notificar">Notificar</button></td>
+                            <td><button class="btn-gestionar">Gestionar</button></td>
+                        </tr>
+                        <tr>
+                            <td>Ángel</td>
+                            <td>Guiberteau</td>
+                            <td>ejemplo@mail.com</td>
+                            <td>DAW</td>
+                            <td>2º DAW</td>
+                            <td>Ver</td>
+                            <td><button class="btn-doc">Ver</button></td>
+                            <td>21/12/99</td>
+                            <td><input type="checkbox"></td>
+                            <td><button class="btn-notificar">Notificar</button></td>
+                            <td><button class="btn-gestionar">Gestionar</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="acciones">
+                    <button class="btn-filtrar">Filtrar</button>
+                    <button class="btn-ordenar">Ordenar</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="colaboradores">
+            <b>Colaboradores</b>
+            <p><a href="https://atabalfundacion.wordpress.com/">Fundacion Atabal</a></p>
+            <p><a href="https://www.aytobadajoz.es/es/ayto/portada">Ayto. Badajoz</a></p>
+            <p><a href="https://www.aexpainba-fmm.org/comienzo.asp">AEXPAINBA</a></p>
+            <p><a href="http://www.fidesbancaetica.com/">FIDES</a></p>
+        </div>
+        <div class="cita">
+            <p>"El examen de conciencia es siempre el mejor medio para cuidar bien el alma."</p>
+            <p>"San Ignacio de Loyola"</p>
+        </div>
+        <div class="contacto">
+            <b id="contactar">Contactar</b>
+            <p><i class="fas fa-map-marker-alt"></i> C/ Corte de Peleas, 79 06009 Badajoz</p>
+            <p><i class="fas fa-phone"></i> +34 924 25 17 61</p>
+        </div>
+    </footer>
+</body>
+</html>

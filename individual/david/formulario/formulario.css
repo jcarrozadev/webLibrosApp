@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+:root { /* Paleta de colores */
+    --color-azul-oscuro: #404258;
+    --color-azul-medio: #474E68;
+    --color-azul-claro: #6B728E;
+    --color-acento-azul: #3C7EFC;
+    --color-blanco: #FFF;
+    --color-negro: #000;
+}
+html{
+    font-family: Nunito;
+}
+
+
+header {
+    background-color: var(--color-azul-oscuro);
+    padding: 1rem 2%;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo del logo */
+.logo {
+    position: absolute;
+    top: 50%;
+    left: 2%;
+    transform: translateY(-50%);
+}
+
+.logo > a > img {
+    width: 2.5rem;
+    height: auto;
+}
+
+.logo > a > img:hover {
+    transform: scale(1.1);
+    transition: all 0.3s;
+}
+
+nav {
+    display: inline-block;
+}
+
+nav > a {
+    color: var(--color-blanco);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    margin: 0 0.5rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+nav > a:hover {
+    background-color: var(--color-acento-azul);
+    border-radius: 0.3rem;
+}
+
+.icono-usuario {
+    position: absolute;
+    top: 50%;
+    right: 2%;
+    transform: translateY(-50%);
+}
+
+.icono-usuario img {
+    width: 2rem;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.icono-usuario img:hover {
+    transform: scale(1.1);
+}
+
+h1{
+    text-align: center;
+}
+main>div{
+    position: relative;
+    top:30px;
+    left: 34%;
+    width: 30%;
+    background-color: #e0e0e0;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+form{
+    height: 200px;
+    padding-left: 30%;
+}
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+#botones-navegacion{
+    position: relative;
+    right: 15%;
+}
+#botones-navegacion .botones {
+    width: 45%; 
+    padding: 10px;
+    border: none;
+    background-color: #a5a4a4;
+    color: white;
+    cursor: pointer;
+}
+
+#botones-navegacion .botones:hover {
+    background-color: #696868;
+}
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f2f2f2;
+    padding: 20px 0;
+}
+
+footer > .colaboradores,
+footer > .cita,
+footer > .contacto {
+    text-align: center;
+}
+
+footer > .contacto {
+    margin-left: 3%;
+}
+
+footer > .colaboradores,
+footer > .cita,
+footer > .contacto {
+    display: inline-block;
+    vertical-align: top;
+    padding: 10px;
+    width: 30%; /* Ajustar si necesitas más o menos espacio para cada sección */
+}
+
+footer > .contacto > p {
+    margin: 5px 0;
+}

@@ -1,0 +1,253 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+:root { /* Paleta de colores */
+    --uno: #404258;
+    --dos: #474E68;
+    --tres: #6B728E;
+    --cuatro: #3C7EFC;
+    --cinco: #FFF;
+}
+
+body{
+    font-family: Nunito;
+    background-color: var(--cinco);
+    justify-content: center;
+}
+
+/***************
+*     Nav      *
+***************/
+
+header {
+    background-color: var(--color-azul-oscuro);
+    padding: 1rem 2%;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo del logo */
+.logo {
+    position: absolute;
+    top: 50%;
+    left: 2%;
+    transform: translateY(-50%);
+}
+
+.logo > a > img {
+    width: 2.5rem;
+    height: auto;
+}
+
+.logo > a > img:hover {
+    transform: scale(1.1);
+    transition: all 0.3s;
+}
+
+nav {
+    display: inline-block;
+}
+
+nav > a {
+    color: var(--color-blanco);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    margin: 0 0.5rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+nav > a:hover {
+    background-color: var(--color-acento-azul);
+    border-radius: 0.3rem;
+}
+
+.icono-usuario {
+    position: absolute;
+    top: 50%;
+    right: 2%;
+    transform: translateY(-50%);
+}
+
+.icono-usuario img {
+    width: 2rem;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.icono-usuario img:hover {
+    transform: scale(1.1);
+}
+
+/****** TOTAL DE LIBROS ******/
+.añadir{
+    background-color:var(--dos);
+    color: var(--cinco);
+    border: none;
+    font-size: 1.5em;
+    width: 3%;
+    height: 6%;
+    float: left; 
+    border-radius: 6%;
+    margin-left: 2%;
+}
+
+.añadir:hover{
+    background-color: var(--uno);
+}
+
+/* Contenedor del Título y Botones de Filtro/Orden */
+.titulo-y-controles{
+    width: 100%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.tituloTotalLibros{
+    text-align: center;
+    color: var(--uno);
+    font-size: 1.5em;
+    margin: 0 auto;
+}
+
+.botonesFyO{
+    float: right;
+    margin-right: 3%;
+}
+
+.filtrar, .ordenar{
+    background-color: var(--dos);
+   
+    color: var(--cinco);
+    margin-right: 10%;
+    font-size: 1.2em;
+    padding: 6%;
+    border: none;
+    border-radius: 5%;
+}
+
+.filtrar:hover, .ordenar:hover{
+    background-color:var(--uno);
+}
+
+/* Tabla total de libros */
+.tablaLibros{
+    width: 70%;
+    border-collapse: collapse;
+    margin-top: 2%;
+    background-color: var(--cinco);
+    padding: 2%;
+    border: 1px solid var(--dos);
+    margin: 0 auto;
+}
+
+.tablaLibros th, .tablaLibros td{
+    padding: 1%;
+    text-align: center;
+    border: 1px solid var(--dos);
+    color: var(--uno);
+}
+
+.tablaLibros th{
+    background-color: var(--tres);
+    color: var(--cinco);
+    font-weight: bold;
+}
+
+/* Botones de las tablas*/
+#modificar, #eliminar{
+    padding: 1% 3%;
+    background-color: var(--tres);
+    color: var(--cinco);
+    border: none;
+    font-size: 0.9em;
+    cursor: pointer;
+}
+
+#modificar:hover, #eliminar:hover{
+    background-color: var(--uno);
+}
+
+/****** FOOTER ******/
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f2f2f2;
+    padding: 20px 0;
+}
+
+footer > .colaboradores,
+footer > .cita,
+footer > .contacto {
+    text-align: center;
+}
+
+footer > .contacto {
+    margin-left: 3%;
+}
+
+footer > .colaboradores,
+footer > .cita,
+footer > .contacto {
+    display: inline-block;
+    vertical-align: top;
+    padding: 10px;
+    width: 30%; /* Ajustar si necesitas más o menos espacio para cada sección */
+}
+
+footer > .contacto > p {
+    margin: 5px 0;
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 1rem 4%;
+    }
+    footer > .colaboradores,
+    footer > .cita,
+    footer > .contacto {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+    }
+    .añadir{
+        background-color: #474E68;
+        color: #fff;
+        border: none;
+        font-size: 1.5em;
+        width: 5%;
+        height: 4%;
+        float: left; 
+        border-radius: 6%;
+        margin-left: 2%;
+    }
+
+    .botonesFyO{
+        display: block;
+        margin-top: 1%;
+        text-align: center;
+    }
+
+    .filtrar, .ordenar {
+        width: 70%;
+        margin-bottom: 5%;
+        font-size: 1em;
+        padding: 5%;
+        margin-right: 2%;
+    }
+
+    .tablaLibros th, .tablaLibros td {
+        padding: 1.5%;
+    }
+    
+    #modificar, #eliminar {
+        padding: 3%;
+        width: 80%;
+    }
+    
+}

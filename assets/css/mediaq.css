@@ -1,0 +1,14 @@
+/* Media Query para tablets */
+@media (max-width: 768px) {
+    header {
+        padding: 1rem 4%;
+    }
+    footer > .colaboradores,
+    footer > .cita,
+    footer > .contacto {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+    }
+}
