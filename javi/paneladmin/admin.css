@@ -5,6 +5,8 @@
     --color-acento-azul: #3C7EFC;
     --color-blanco: #FFF;
     --color-negro: #000;
+    --color-admin: #fc3c3c;
+    --color-admin-oscuro: #584040;
 }
 
 * {
@@ -30,7 +32,7 @@ body {
 ***************/
 
 header {
-    background-color: var(--color-azul-oscuro);
+    background-color: var(--color-admin-oscuro);
     padding: 1rem 2%;
     text-align: center;
     position: relative;
@@ -71,7 +73,7 @@ nav > a {
 }
 
 nav > a:hover {
-    background-color: var(--color-acento-azul);
+    background-color: var(--color-admin);
     border-radius: 0.3rem;
 }
 

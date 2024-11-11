@@ -10,6 +10,8 @@
     --color-acento-azul: #3C7EFC;
     --color-blanco: #FFF;
     --color-negro: #000;
+    --color-admin: #fc3c3c;
+    --color-admin-oscuro: #584040;
 }
 ```
 
