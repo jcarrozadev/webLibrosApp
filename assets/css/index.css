@@ -8,7 +8,6 @@
 
 /* Estilo del cuerpo */
 body {
-    font-family: 'Arial', sans-serif;
     color: var(--color-blanco);
     background-color: var(--color-azul-medio);
     line-height: 1.6;
