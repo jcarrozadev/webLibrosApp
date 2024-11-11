@@ -11,7 +11,7 @@
     --color-blanco: #FFF;
     --color-negro: #000;
     --color-admin: #fc3c3c;
-    --color-admin-oscuro: #584040;
+    --color-admin-oscuro: #c12d2d;
 }
 ```
 
