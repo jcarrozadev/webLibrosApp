@@ -1,0 +1,15 @@
+body {
+    background-color: var(--color-blanco);
+}
+
+header {
+    background-color: var(--color-admin-oscuro);
+}
+
+nav > a:hover {
+    background-color: var(--color-admin);
+}
+
+footer {
+    background-color: var(--color-admin-oscuro);
+}
