@@ -149,12 +149,9 @@ nav > a:hover {
 ### CSS
 ```
 footer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: #f2f2f2;
     padding: 20px 0;
+    width: 100%;
+    background-color: var(--color-azul-claro);
 }
 
 footer > .colaboradores,
@@ -178,6 +175,16 @@ footer > .contacto {
 
 footer > .contacto > p {
     margin: 5px 0;
+}
+
+footer > .colaboradores > p > a {
+    color: white;
+    text-decoration: none;
+}
+
+footer > .colaboradores > p > a:hover {
+    text-shadow: 0px 0px 5px white;
+    transition: all 0.6s;
 }
 ```
 
