@@ -1,14 +1,95 @@
 /* Media Query para tablets */
-@media (max-width: 768px) {
+@media (max-width: 1024px) and (min-width: 768px) {
     header {
         padding: 1rem 4%;
-    }
+   }
+
+
     footer > .colaboradores,
     footer > .cita,
     footer > .contacto {
         display: block;
         width: 100%;
         text-align: center;
-        padding: 10px;
+        margin: 10px 0; 
     }
-}
+
+    .colaboradores,
+    .cita,
+    .contacto {
+        text-align: center;
+        margin: 0;
+        padding: 0 1rem;
+    }
+} 
+
+/* Media Query para móviles */
+@media (max-width: 767px) {
+    header {
+        padding: 1rem 3%; 
+        text-align: center; 
+    }
+
+    /* Asegurar que el logo y el icono de usuario estén bien posicionados /
+    .logo {
+        position: absolute;
+        top: 50%;
+        left: 5%;
+        transform: translateY(-50%);
+    }
+
+    .icono-usuario {
+        position: absolute;
+        top: 50%;
+        right: 5%;
+        transform: translateY(-50%);
+    }
+
+    / Ajustes adicionales para navegación en móvil */
+    nav {
+        display: block;
+        margin-top: 1rem;
+        text-align: center;
+    }
+
+    nav a {
+        display: block;
+        padding: 0.8rem;
+        font-size: 1rem;
+        text-align: center;
+        margin: 0.3rem 0;
+        border-radius: 0.3rem;
+        transition: background-color 0.3s ease;
+    }
+
+    footer{
+        position: relative;
+    }
+
+    footer > .colaboradores,
+    footer > .cita,
+    footer > .contacto {
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin: 8px 0; 
+    }
+
+    .colaboradores,
+    .cita,
+    .contacto {
+        text-align: center;
+        margin: 0;
+        padding: 0 0.5rem;
+    }
+
+    .colaboradores h2,
+    .contacto h2 {
+        font-size: 1rem;
+    }
+
+    .cita p,
+    .contacto p {
+        font-size: 0.9rem;
+    }
+} 
