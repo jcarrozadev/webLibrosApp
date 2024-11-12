@@ -125,8 +125,21 @@ footer{
 
 /* Media Query para tablets */
 @media (max-width: 1024px) and (min-width: 768px) {
-    footer {
-        position: relative;
+    
+    footer{
+        position: absolute;
         bottom: 0;
     }
+
+
 } 
+
+/* Media Query para moviles */
+
+@media (max-width: 767px) {
+
+    footer{
+        position: relative;
+    }
+
+}
