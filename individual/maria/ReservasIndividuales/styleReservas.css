@@ -8,22 +8,21 @@
     --color-blanco: #FFF;
     --color-negro: #000;
     --color-admin: #fc3c3c;
-    --color-admin-oscuro: #584040;
+    --color-admin-oscuro: #c12d2d;
 }
 
 
 body{
     font-family: Nunito;
     background-color: var(--cinco);
-
     margin: 0;
     width: 100%;
 }
 
-/***  Nav ***/
+/*** Nav ***/
 
 header {
-    background-color: var(--color-azul-oscuro);
+    background-color: var(--color-admin-oscuro);
     padding: 1rem 2%;
     text-align: center;
     position: relative;
@@ -64,7 +63,7 @@ nav > a {
 }
 
 nav > a:hover {
-    background-color: var(--color-acento-azul);
+    background-color: var(--color-admin);
     border-radius: 0.3rem;
 }
 
@@ -157,9 +156,10 @@ footer {
     bottom: 0;
     padding: 20px 0;
     width: 100%;
-    background-color: var(--color-acento-azul);
-}
+    background-color: var(--color-admin-oscuro);
 
+}
+    
 footer > .colaboradores,
 footer > .cita,
 footer > .contacto {
@@ -194,10 +194,9 @@ footer > .colaboradores > p > a:hover {
 }
 
 @media (max-width: 1024px) and (min-width: 768px) {
-
     header {
         padding: 1rem 4%;
-    }
+   }
 
     footer > .colaboradores,
     footer > .cita,
@@ -205,7 +204,15 @@ footer > .colaboradores > p > a:hover {
         display: block;
         width: 100%;
         text-align: center;
-        padding: 10px;
+        margin: 10px 0; 
+    }
+
+    .colaboradores,
+    .cita,
+    .contacto {
+        text-align: center;
+        margin: 0;
+        padding: 0 1rem;
     }    
     .reservasIndv {
         width: 80%; 
@@ -228,4 +235,75 @@ footer > .colaboradores > p > a:hover {
         width: 100%; 
         margin: 1% 0;
     }
+/* Media Query para móviles */
+@media (max-width: 767px) {
+    header {
+        padding: 1rem 3%; 
+        text-align: center; 
+    }
+
+    /* Asegurar que el logo y el icono de usuario estén bien posicionados*/
+    .logo {
+        position: absolute;
+        top: 50%;
+        left: 5%;
+        transform: translateY(-50%);
+    }
+
+    .icono-usuario {
+        position: absolute;
+        top: 50%;
+        right: 5%;
+        transform: translateY(-50%);
+    }
+
+    /* Ajustes adicionales para navegación en móvil */
+    nav {
+        display: block;
+        margin-top: 1rem;
+        text-align: center;
+    }
+
+    nav a {
+        display: block;
+        padding: 0.8rem;
+        font-size: 1rem;
+        text-align: center;
+        margin: 0.3rem 0;
+        border-radius: 0.3rem;
+        transition: background-color 0.3s ease;
+    }
+
+    footer{
+        position: relative;
+    }
+
+    footer > .colaboradores,
+    footer > .cita,
+    footer > .contacto {
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin: 8px 0; 
+    }
+
+    .colaboradores,
+    .cita,
+    .contacto {
+        text-align: center;
+        margin: 0;
+        padding: 0 0.5rem;
+    }
+
+    .colaboradores h2,
+    .contacto h2 {
+        font-size: 1rem;
+    }
+
+    .cita p,
+    .contacto p {
+        font-size: 0.9rem;
+    }
+}
+
 }

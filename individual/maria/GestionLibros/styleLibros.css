@@ -8,27 +8,36 @@
     --color-blanco: #FFF;
     --color-negro: #000;
     --color-admin: #fc3c3c;
-    --color-admin-oscuro: #584040;
+    --color-admin-oscuro: #c12d2d;
 }
 
-body{
-    width: 100%;
-    font-family: Nunito;
-    background-color: var(--color-blanco);
+/* Estilo global */
+/* Estilo global */
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+body {
+    font-family: Nunito;
+    color: var(--color-blanco);
+    background-color: var(--color-blanco);
+    line-height: 1.6;
 }
 
 /*** Nav ***/
 
 header {
-    background-color: var(--color-azul-oscuro);
+    background-color: var(--color-admin-oscuro);
     padding: 1rem 2%;
     text-align: center;
     position: relative;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-/*** Estilo del logo ***/
+/* Estilo del logo */
 .logo {
     position: absolute;
     top: 50%;
@@ -62,7 +71,7 @@ nav > a {
 }
 
 nav > a:hover {
-    background-color: var(--color-acento-azul);
+    background-color: var(--color-admin);
     border-radius: 0.3rem;
 }
 
@@ -184,13 +193,14 @@ footer {
     bottom: 0;
     padding: 20px 0;
     width: 100%;
-    background-color: var(--color-acento-azul);
+    background-color: var(--color-admin-oscuro);
 }
 
 footer > .colaboradores,
 footer > .cita,
 footer > .contacto {
     text-align: center;
+    color: white;
 }
 
 footer > .contacto {
@@ -205,6 +215,7 @@ footer > .contacto {
     padding: 10px;
     width: 30%; 
 }
+
 footer > .contacto > p {
     margin: 5px 0;
 }
@@ -220,13 +231,9 @@ footer > .colaboradores > p > a:hover {
 }
 
 @media (max-width: 1024px) and (min-width: 768px) {
-    body{
-        margin: 0;
-    }
-    
     header {
         padding: 1rem 4%;
-    }
+   }
 
     footer > .colaboradores,
     footer > .cita,
@@ -234,7 +241,15 @@ footer > .colaboradores > p > a:hover {
         display: block;
         width: 100%;
         text-align: center;
-        padding: 10px;
+        margin: 10px 0; 
+    }
+
+    .colaboradores,
+    .cita,
+    .contacto {
+        text-align: center;
+        margin: 0;
+        padding: 0 1rem;
     }
     
     
@@ -289,5 +304,74 @@ footer > .colaboradores > p > a:hover {
         width: 100%; 
         margin: 1% 0;
     }
+}
+/* Media Query para móviles */
+@media (max-width: 767px) {
+    header {
+        padding: 1rem 3%; 
+        text-align: center; 
+    }
 
+    /* Asegurar que el logo y el icono de usuario estén bien posicionados*/
+    .logo {
+        position: absolute;
+        top: 50%;
+        left: 5%;
+        transform: translateY(-50%);
+    }
+
+    .icono-usuario {
+        position: absolute;
+        top: 50%;
+        right: 5%;
+        transform: translateY(-50%);
+    }
+
+    /* Ajustes adicionales para navegación en móvil */
+    nav {
+        display: block;
+        margin-top: 1rem;
+        text-align: center;
+    }
+
+    nav a {
+        display: block;
+        padding: 0.8rem;
+        font-size: 1rem;
+        text-align: center;
+        margin: 0.3rem 0;
+        border-radius: 0.3rem;
+        transition: background-color 0.3s ease;
+    }
+
+    footer{
+        position: relative;
+    }
+
+    footer > .colaboradores,
+    footer > .cita,
+    footer > .contacto {
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin: 8px 0; 
+    }
+
+    .colaboradores,
+    .cita,
+    .contacto {
+        text-align: center;
+        margin: 0;
+        padding: 0 0.5rem;
+    }
+
+    .colaboradores h2,
+    .contacto h2 {
+        font-size: 1rem;
+    }
+
+    .cita p,
+    .contacto p {
+        font-size: 0.9rem;
+    }
 }
