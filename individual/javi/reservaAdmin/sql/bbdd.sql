@@ -37,6 +37,15 @@ CREATE TABLE Libros (
     CONSTRAINT fk_idEditorial FOREIGN KEY (idEditorial) REFERENCES Editoriales(idEditorial) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
+-- Crear tabla intermedia para relacionar Libros y Cursos
+CREATE TABLE Libros_Cursos (
+    idLibro TINYINT NOT NULL,
+    idCurso TINYINT NOT NULL,
+    CONSTRAINT pk_libros_cursos PRIMARY KEY (idLibro, idCurso),
+    CONSTRAINT fk_libro FOREIGN KEY (idLibro) REFERENCES Libros(idLibro) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT fk_curso FOREIGN KEY (idCurso) REFERENCES Cursos(idCurso) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
 -- Crear tabla Reservas
 CREATE TABLE Reservas (
     idReserva INT AUTO_INCREMENT PRIMARY KEY,
