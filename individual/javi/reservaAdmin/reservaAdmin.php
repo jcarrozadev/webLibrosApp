@@ -36,6 +36,16 @@
 
     <main>
         <h1>Reserva de Libros</h1>
+        <?php 
+        
+            if (isset($_GET['mensaje'])) {
+                echo '<div style=color:black;>';
+                echo $_GET['mensaje']; 
+                echo '</div>';
+            }
+            
+        ?>
+
         <div class="acciones">
             <button class="btn-anadir" onclick="toggleModal()">+</button>    
             <button class="btn-filtrar">Filtrar</button>

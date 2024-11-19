@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -249,27 +250,6 @@
                     <td><button class="btn-gestionar">Gestionar</button></td>
                     <td><input type="checkbox"></td>
                 </tr>
-                <tr>
-                    <td>Ángel</td>
-                    <td>Guiberteau</td>
-                    <td>ejemplo@mail.com</td>
-                    <td>DAW</td>
-                    <td>2º DAW</td>
-                    <td>
-                        <select>
-                            <option selected disabled hidden>Libros</option>
-                            <option value="libro1">Libro 1</option>
-                            <option value="libro2">Libro 2</option>
-                            <option value="libro3">Libro 3</option>
-                        </select>
-                    </td>
-                    <td><button class="btn-doc">Ver</button></td>
-                    <td>21/12/99</td>
-                    <td><input type="checkbox"></td>
-                    <td><button class="btn-notificar">Notificar</button></td>
-                    <td><button class="btn-gestionar">Gestionar</button></td>
-                    <td><input type="checkbox"></td>
-                </tr>
             </tbody>
         </table>
         </div>
@@ -321,11 +301,20 @@
                 </select>
                 <label class="modal-label">Libro a reservar:</label>
                 <div class="checkbox-group">
-                    <label><input type="checkbox" name="libro1" class="modal-checkbox"> Libro</label>
-                    <label><input type="checkbox" name="libro2" class="modal-checkbox"> Libro</label>
-                    <label><input type="checkbox" name="libro3" class="modal-checkbox"> Libro</label>
-                    <label><input type="checkbox" name="libro4" class="modal-checkbox"> Libro</label>
-                    <label><input type="checkbox" name="libro5" class="modal-checkbox"> Libro</label>
+                    <!-- <label><input type="checkbox" name="libro1" class="modal-checkbox"> Libro</label> -->
+                    <?php
+                        if (isset($_SESSION['resultado'])) {
+                        $resultado = $_SESSION['resultado'];
+                        foreach ($resultado as $fila) {
+                            echo "<label><input type=checkbox name=".$fila['libro']." class=modal-checkbox>" . $fila['libro'] . "</input></label><br>";
+                        }
+
+                        // Limpiar la sesión si ya no necesitas los datos
+                        unset($_SESSION['resultado']);
+                        } else {
+                        echo "No hay datos para mostrar.";
+                        }
+                        ?>
                 </div>
                 <label class="modal-label" for="documento">Insertar documento de pago:</label>
                 <div class="file-input-group">
