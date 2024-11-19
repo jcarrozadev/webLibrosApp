@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="../assets/css/header.css">
         <link rel="stylesheet" href="../assets/css/footer.css">
         <link rel="stylesheet" href="../assets/css/admin.css">
-        <link rel="stylesheet" href="./assets/css/reservaAdmin.css">
+        <link rel="stylesheet" href="./assets/css/2reservaAdmin.css">    
     </head>
     <body>
 
@@ -295,27 +295,49 @@
     </footer>
 
     <!-- Ventana emergente (modal) -->
-    <div id="modal" class="modal">
+    <div id="modal" class="modal show">
         <div class="modal-content">
-            <h2>Reserva de Libros</h2>
-            <form method="post" action="./php/comprobar.php">
-                <label for="curso">Curso:</label>
-                <select name="curso">
+            <h2 class="modal-title">Reserva de Libros</h2>
+            <form>
+                <label>Nombre:</label>
+                <input type="text">
+                <label>Apellidos:</label>
+                <input type="text">
+                <label>Correo:</label>
+                <input type="email">
+                <label>Clase:</label>
+                <select>
                     <option selected disabled hidden></option>
-                    <option value="1">1º ESO</option>
-                    <option value="2">2º ESO</option>
-                    <option value="3">3º ESO</option>
-                    <option value="4">4º ESO</option>
-                    <option value="5">CFGM SMR</option>
-                    <option value="6">CFGS DAW</option>
+                    <option value="1">1º ESO A</option>
+                    <option value="2">1º ESO B</option>
+                    <option value="3">2º ESO A</option>
+                    <option value="4">2º ESO B</option>
+                    <option value="5">3º ESO A</option>
+                    <option value="6">4º ESO A</option>
+                    <option value="7">1º CFGM SMR</option>
+                    <option value="8">2º CFGM SMR</option>
+                    <option value="9">1º CFGS DAW</option>
+                    <option value="10">2º CFGS DAW</option>
                 </select>
+                <label class="modal-label">Libro a reservar:</label>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="libro1" class="modal-checkbox"> Libro</label>
+                    <label><input type="checkbox" name="libro2" class="modal-checkbox"> Libro</label>
+                    <label><input type="checkbox" name="libro3" class="modal-checkbox"> Libro</label>
+                    <label><input type="checkbox" name="libro4" class="modal-checkbox"> Libro</label>
+                    <label><input type="checkbox" name="libro5" class="modal-checkbox"> Libro</label>
+                </div>
+                <label class="modal-label" for="documento">Insertar documento de pago:</label>
+                <div class="file-input-group">
+                    <input type="file" id="documento" name="documento" class="modal-file-input">
+                </div>
                 <div class="modal-buttons">
-                    <button type="button" onclick="toggleModal()">Cancelar</button>
-                    <button type="submit">Siguiente</button>
+                    <button type="button" class="modal-button modal-cancel" onclick="toggleModal()">Cancelar</button>
+                    <button type="submit" class="modal-button modal-reserve">Reservar</button>
                 </div>
             </form>
         </div>
-    </div>
+    </div> 
 
     <script>
         function toggleModal() {
