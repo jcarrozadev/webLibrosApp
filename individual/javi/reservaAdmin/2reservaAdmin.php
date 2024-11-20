@@ -321,7 +321,7 @@
                     <input type="file" id="documento" name="documento" class="modal-file-input">
                 </div>
                 <div class="modal-buttons">
-                    <button type="button" class="modal-button modal-cancel" onclick="toggleModal()">Cancelar</button>
+                    <button type="button" class="modal-button modal-cancel" onclick="toggleModal()"><a href="reservaAdmin.php" style="color:black;text-decoration:none;">Cancelar</a></button>
                     <button type="submit" class="modal-button modal-reserve">Reservar</button>
                 </div>
             </form>
