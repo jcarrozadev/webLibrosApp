@@ -14,11 +14,11 @@
         <link rel="stylesheet" href="../assets/css/header.css">
         <link rel="stylesheet" href="../assets/css/footer.css">
         <link rel="stylesheet" href="../assets/css/admin.css">
-        <link rel="stylesheet" href="./assets/css/2reservaAdmin.css">
+        <link rel="stylesheet" href="./assets/css/2reservaAdmin.css">    
     </head>
     <body>
 
-    <?php require_once '../php/header.php'; ?>
+    <?php require_once './php/header.php'; ?>
 
     <main>
         <h1>Reserva de Libros</h1>
@@ -274,7 +274,7 @@
                 <select>
                     <option selected disabled hidden></option>
                     <?php
-/*
+
                         require_once './php/config/conectar.php';
 
                         $curso = $_SESSION['curso'];
@@ -285,21 +285,24 @@
 
                         foreach ($resultado as $fila) {
                             echo "<option value=\"" . $curso . $fila['letraClase'] . "\">" . $fila['nombre'] . "</option>";
-                        }*/
+                        }
                     ?>
                 </select>
                 <label class="modal-label">Libro a reservar:</label>
                 <div class="checkbox-group">
                     <!-- <label><input type="checkbox" name="libro1" class="modal-checkbox"> Libro</label> -->
                     <?php
-                        /*if (isset($libros)) {
-                            $resultado = $libros;
+                        if (isset($_SESSION['resultado'])) {
+                            $resultado = $_SESSION['resultado'];
                             foreach ($resultado as $fila) {
                                 echo "<label><input type=checkbox name=".$fila['libro']." class=modal-checkbox>" . $fila['libro'] . "</input></label><br>";
                             }
+
+                            // Limpiar la sesión si ya no necesitas los datos
+                            unset($_SESSION['resultado']);
                         } else {
                             echo "No hay datos para mostrar.";
-                        }*/
+                        }
                     ?>
                 </div>
                 <label class="modal-label" for="documento">Insertar documento de pago:</label>

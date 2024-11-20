@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -14,14 +13,24 @@
         <link rel="stylesheet" href="../assets/css/header.css">
         <link rel="stylesheet" href="../assets/css/footer.css">
         <link rel="stylesheet" href="../assets/css/admin.css">
-        <link rel="stylesheet" href="./assets/css/2reservaAdmin.css">
+        <link rel="stylesheet" href="./assets/css/reservaAdmin.css">
     </head>
     <body>
 
-    <?php require_once '../php/header.php'; ?>
+    <?php require_once './php/header.php'; ?>
 
     <main>
         <h1>Reserva de Libros</h1>
+        <?php 
+        
+            if (isset($_GET['mensaje'])) {
+                echo '<div style=color:black;>';
+                echo $_GET['mensaje']; 
+                echo '</div>';
+            }
+            
+        ?>
+
         <div class="acciones">
             <button class="btn-anadir" onclick="toggleModal()">+</button>    
             <button class="btn-filtrar">Filtrar</button>
@@ -46,6 +55,27 @@
                 </tr>
             </thead>
             <tbody>
+                <tr>
+                    <td>Ángel</td>
+                    <td>Guiberteau</td>
+                    <td>ejemplo@mail.com</td>
+                    <td>DAW</td>
+                    <td>2º DAW</td>
+                    <td>
+                        <select>
+                            <option selected disabled hidden>Libros</option>
+                            <option value="libro1">Libro 1</option>
+                            <option value="libro2">Libro 2</option>
+                            <option value="libro3">Libro 3</option>
+                        </select>
+                    </td>
+                    <td><button class="btn-doc">Ver</button></td>
+                    <td>21/12/99</td>
+                    <td><input type="checkbox"></td>
+                    <td><button class="btn-notificar">Notificar</button></td>
+                    <td><button class="btn-gestionar">Gestionar</button></td>
+                    <td><input type="checkbox"></td>
+                </tr>
                 <tr>
                     <td>Ángel</td>
                     <td>Guiberteau</td>
@@ -260,59 +290,40 @@
     </footer>
 
     <!-- Ventana emergente (modal) -->
-    <div id="modal" class="modal show">
+    <div id="modal" class="modal">
         <div class="modal-content">
-            <h2 class="modal-title">Reserva de Libros</h2>
-            <form>
-                <label>Nombre:</label>
-                <input type="text">
-                <label>Apellidos:</label>
-                <input type="text">
-                <label>Correo:</label>
-                <input type="email">
-                <label>Clase:</label>
-                <select>
+            <h2>Reserva de Libros</h2>
+            <form method="post" action="./php/obtenerLibros.php">
+                <label for="curso">Curso:</label>
+                <select name="curso">
                     <option selected disabled hidden></option>
                     <?php
-/*
+
                         require_once './php/config/conectar.php';
 
-                        $curso = $_SESSION['curso'];
+                        $sql = "SELECT * FROM Cursos ORDER BY nombre";
 
-                        $sql = "SELECT * FROM clases WHERE idCurso = '$curso'";
-                        
                         $resultado = $conexion->query($sql);
 
-                        foreach ($resultado as $fila) {
-                            echo "<option value=\"" . $curso . $fila['letraClase'] . "\">" . $fila['nombre'] . "</option>";
-                        }*/
+                        if ($resultado && $resultado->num_rows > 0) {
+
+                            foreach($resultado as $fila) {
+
+                                echo '<option value='.$fila['idCurso'].'>'.$fila['nombre'].'</option>';
+
+                            }
+
+                        }
+
                     ?>
                 </select>
-                <label class="modal-label">Libro a reservar:</label>
-                <div class="checkbox-group">
-                    <!-- <label><input type="checkbox" name="libro1" class="modal-checkbox"> Libro</label> -->
-                    <?php
-                        /*if (isset($libros)) {
-                            $resultado = $libros;
-                            foreach ($resultado as $fila) {
-                                echo "<label><input type=checkbox name=".$fila['libro']." class=modal-checkbox>" . $fila['libro'] . "</input></label><br>";
-                            }
-                        } else {
-                            echo "No hay datos para mostrar.";
-                        }*/
-                    ?>
-                </div>
-                <label class="modal-label" for="documento">Insertar documento de pago:</label>
-                <div class="file-input-group">
-                    <input type="file" id="documento" name="documento" class="modal-file-input">
-                </div>
                 <div class="modal-buttons">
-                    <button type="button" class="modal-button modal-cancel" onclick="toggleModal()"><a href="reservaAdmin.php" style="color:black;text-decoration:none;">Cancelar</a></button>
-                    <button type="submit" class="modal-button modal-reserve">Reservar</button>
+                    <button type="button" onclick="toggleModal()">Cancelar</button>
+                    <button type="submit">Siguiente</button>
                 </div>
             </form>
         </div>
-    </div> 
+    </div>
 
     <script>
         function toggleModal() {

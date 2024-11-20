@@ -1,0 +1,129 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    text-align: center;
+    padding: 20px;
+}
+
+h1 {
+    color: black;
+}
+
+.tabla-reservas {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--color-blanco);
+}
+
+.tabla-reservas th, .tabla-reservas td {
+    padding: 0.5rem;
+    border: 1px solid var(--color-azul-medio);
+    text-align: center;
+    color: var(--color-negro);
+}
+
+.tabla-reservas td select{
+    width: 100%;
+    text-align: center;
+    padding: 0.5rem;
+    border: 1px solid var(--color-admin-oscuro);
+    border-radius: 4px;
+    background-color: var(--color-admin);
+    color: var(--color-negro);
+    font-size: 1rem;
+    appearance: none;
+    font-weight: bold;
+    color: var(--color-blanco);
+}
+
+.tabla-reservas th {
+    background-color: var(--color-admin-oscuro);
+    color: var(--color-blanco);
+    font-weight: bold;
+}
+
+.acciones {
+    text-align: right;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.btn-filtrar, .btn-ordenar, .btn-notificar, .btn-gestionar, .btn-doc, .btn-pedido, .btn-anadir, button {
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    color: var(--color-blanco);
+    background-color: var(--color-admin);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 0.5rem;
+}
+
+.btn-notificar, .btn-gestionar,.btn-doc {
+    background-color: var(--color-admin);
+}
+
+.btn-filtrar:hover, .btn-ordenar:hover, .btn-notificar:hover, .btn-gestionar:hover, .btn-pedido:hover, .btn-anadir:hover, button:hover {
+    background-color: var(--color-blanco);
+    color: black;
+}
+
+button {
+    margin-top: 10px;
+}
+
+/* Estilos para la ventana emergente (modal) */
+.modal {
+    display: none; /* Ocultar por defecto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semitransparente */
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-content {
+    background-color: var(--color-admin-oscuro);
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.modal-content h2 {
+    margin-bottom: 15px;
+}
+
+.modal-content label {
+    display: block;
+    margin-top: 10px;
+    text-align: left;
+}
+
+.modal-content input,
+.modal-content select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+}
+
+.modal-buttons {
+    margin-top: 15px;
+    text-align: right;
+}
+
+.modal-buttons > button {
+    margin: 5px;
+}
