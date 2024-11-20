@@ -312,12 +312,25 @@
                 <label for="curso">Curso:</label>
                 <select name="curso">
                     <option selected disabled hidden></option>
-                    <option value="1">1º ESO</option>
-                    <option value="2">2º ESO</option>
-                    <option value="3">3º ESO</option>
-                    <option value="4">4º ESO</option>
-                    <option value="5">CFGM SMR</option>
-                    <option value="6">CFGS DAW</option>
+                    <?php
+
+                        require_once './php/config/conectar.php';
+
+                        $sql = "SELECT * FROM Cursos ORDER BY nombre";
+
+                        $resultado = $conexion->query($sql);
+
+                        if ($resultado && $resultado->num_rows > 0) {
+
+                            foreach($resultado as $fila) {
+
+                                echo '<option value='.$fila['idCurso'].'>'.$fila['nombre'].'</option>';
+
+                            }
+
+                        }
+
+                    ?>
                 </select>
                 <div class="modal-buttons">
                     <button type="button" onclick="toggleModal()">Cancelar</button>

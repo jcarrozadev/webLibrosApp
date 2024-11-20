@@ -30,60 +30,6 @@ class ReservaAdmin {
         $this->apta = $esAdministrador ? 1 : 0;
     }
 
-    // Getters
-    public function getIdReserva() {
-        return $this->idReserva;
-    }
-
-    public function getDni() {
-        return $this->dni;
-    }
-
-    public function getNombreTutor() {
-        return $this->nombreTutor;
-    }
-
-    public function getCorreo() {
-        return $this->correo;
-    }
-
-    public function getNombreAlumno() {
-        return $this->nombreAlumno;
-    }
-
-    public function getDocumento() {
-        return $this->documento;
-    }
-
-    public function isApta() {
-        return $this->apta;
-    }
-
-    public function getFechaReserva() {
-        return $this->fechaReserva;
-    }
-
-    public function getCosteTotal() {
-        return $this->costeTotal;
-    }
-
-    public function getFechaRegistro() {
-        return $this->fechaRegistro;
-    }
-
-    public function getIdCurso() {
-        return $this->idCurso;
-    }
-
-    public function getLetraClase() {
-        return $this->letraClase;
-    }
-
-    // Setters
-    public function setApta($apta) {
-        $this->apta = $apta;
-    }
-
     // Métodos adicionales
     public function marcarApta() {
         $this->apta = 1;

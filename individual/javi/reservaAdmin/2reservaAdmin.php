@@ -288,33 +288,37 @@
                 <label>Clase:</label>
                 <select>
                     <option selected disabled hidden></option>
-                    <option value="1">1º ESO A</option>
-                    <option value="2">1º ESO B</option>
-                    <option value="3">2º ESO A</option>
-                    <option value="4">2º ESO B</option>
-                    <option value="5">3º ESO A</option>
-                    <option value="6">4º ESO A</option>
-                    <option value="7">1º CFGM SMR</option>
-                    <option value="8">2º CFGM SMR</option>
-                    <option value="9">1º CFGS DAW</option>
-                    <option value="10">2º CFGS DAW</option>
+                    <?php
+
+                        require_once './php/config/conectar.php';
+
+                        $curso = $_SESSION['curso'];
+
+                        $sql = "SELECT * FROM clases WHERE idCurso = '$curso'";
+                        
+                        $resultado = $conexion->query($sql);
+
+                        foreach ($resultado as $fila) {
+                            echo "<option value=\"" . $curso . $fila['letraClase'] . "\">" . $fila['nombre'] . "</option>";
+                        }
+                    ?>
                 </select>
                 <label class="modal-label">Libro a reservar:</label>
                 <div class="checkbox-group">
                     <!-- <label><input type="checkbox" name="libro1" class="modal-checkbox"> Libro</label> -->
                     <?php
                         if (isset($_SESSION['resultado'])) {
-                        $resultado = $_SESSION['resultado'];
-                        foreach ($resultado as $fila) {
-                            echo "<label><input type=checkbox name=".$fila['libro']." class=modal-checkbox>" . $fila['libro'] . "</input></label><br>";
-                        }
+                            $resultado = $_SESSION['resultado'];
+                            foreach ($resultado as $fila) {
+                                echo "<label><input type=checkbox name=".$fila['libro']." class=modal-checkbox>" . $fila['libro'] . "</input></label><br>";
+                            }
 
-                        // Limpiar la sesión si ya no necesitas los datos
-                        unset($_SESSION['resultado']);
+                            // Limpiar la sesión si ya no necesitas los datos
+                            unset($_SESSION['resultado']);
                         } else {
-                        echo "No hay datos para mostrar.";
+                            echo "No hay datos para mostrar.";
                         }
-                        ?>
+                    ?>
                 </div>
                 <label class="modal-label" for="documento">Insertar documento de pago:</label>
                 <div class="file-input-group">
