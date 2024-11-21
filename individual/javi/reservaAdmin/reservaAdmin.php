@@ -6,19 +6,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Reservar Administrador | Libros</title>
         <!-- ICONO -->
-        <link rel="shortcut icon" href="../assets/img/favicon.svg" type="image/x-icon">
+        <link rel="shortcut icon" href="../../assets/img/favicon.svg" type="image/x-icon">
         <!-- IMPORT -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
         <!-- CSS -->
-        <link rel="stylesheet" href="../assets/css/import.css">
-        <link rel="stylesheet" href="../assets/css/header.css">
-        <link rel="stylesheet" href="../assets/css/footer.css">
-        <link rel="stylesheet" href="../assets/css/admin.css">
-        <link rel="stylesheet" href="./assets/css/2reservaAdmin.css">
+        <link rel="stylesheet" href="../../assets/css/import.css">
+        <link rel="stylesheet" href="../../assets/css/header.css">
+        <link rel="stylesheet" href="../../assets/css/footer.css">
+        <link rel="stylesheet" href="../../assets/css/admin.css">
+        <link rel="stylesheet" href="../assets/css/2reservaAdmin.css">
     </head>
     <body>
 
-    <?php require_once '../php/header.php'; ?>
+    <?php include '../php/vistas/header.php'; ?>
 
     <main>
         <h1>Reserva de Libros</h1>
@@ -264,42 +264,45 @@
         <div class="modal-content">
             <h2 class="modal-title">Reserva de Libros</h2>
             <form>
-                <label>Nombre:</label>
-                <input type="text">
-                <label>Apellidos:</label>
-                <input type="text">
-                <label>Correo:</label>
-                <input type="email">
-                <label>Clase:</label>
-                <select>
+                <label for="dni">DNI:</label>
+                <input type="text" name="dni">
+                <label for="nombreTutor">Nombre Completo Tutor:</label>
+                <input type="text" name="nombreTutor">
+                <label for="correo">Correo:</label>
+                <input type="email" name="correo">
+                <label for="nombreAlumno">Nombre Completo Alumno:</label>
+                <input type="text" name="nombreAlumno">
+                <label for="clases">Clase:</label>
+                <select name="clases">
                     <option selected disabled hidden></option>
                     <?php
-/*
-                        require_once './php/config/conectar.php';
-
-                        $curso = $_SESSION['curso'];
-
-                        $sql = "SELECT * FROM clases WHERE idCurso = '$curso'";
                         
-                        $resultado = $conexion->query($sql);
-
-                        foreach ($resultado as $fila) {
-                            echo "<option value=\"" . $curso . $fila['letraClase'] . "\">" . $fila['nombre'] . "</option>";
-                        }*/
+                        if (isset($clases)) {
+                            $resultado = $clases;
+                            foreach ($resultado as $fila) {
+                                $valorClase = $curso . $fila['letraClase'];
+                                    echo "<option value=\"$valorClase\">" . $fila['nombre'] . "</option>";
+                            }
+                        } else {
+                            echo '<option disabled>No hay datos</option>';
+                       }
                     ?>
                 </select>
                 <label class="modal-label">Libro a reservar:</label>
                 <div class="checkbox-group">
-                    <!-- <label><input type="checkbox" name="libro1" class="modal-checkbox"> Libro</label> -->
                     <?php
-                        /*if (isset($libros)) {
+                        if (isset($libros)) {
                             $resultado = $libros;
                             foreach ($resultado as $fila) {
-                                echo "<label><input type=checkbox name=".$fila['libro']." class=modal-checkbox>" . $fila['libro'] . "</input></label><br>";
+                                echo "
+                                <label>
+                                    ".$fila['libro']."
+                                    <input type='checkbox' name='".$fila['libro']."' class='modal-checkbox'>
+                                </label>";
                             }
                         } else {
                             echo "No hay datos para mostrar.";
-                        }*/
+                        }
                     ?>
                 </div>
                 <label class="modal-label" for="documento">Insertar documento de pago:</label>
@@ -307,7 +310,7 @@
                     <input type="file" id="documento" name="documento" class="modal-file-input">
                 </div>
                 <div class="modal-buttons">
-                    <button type="button" class="modal-button modal-cancel" onclick="toggleModal()"><a href="reservaAdmin.php" style="color:black;text-decoration:none;">Cancelar</a></button>
+                    <button type="button" class="modal-button modal-cancel" onclick="toggleModal()"><a href="../elegirCurso.php" style="color:black;text-decoration:none;">Cancelar</a></button>
                     <button type="submit" class="modal-button modal-reserve">Reservar</button>
                 </div>
             </form>

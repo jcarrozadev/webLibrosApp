@@ -12,11 +12,19 @@ class Creservaadmin {
     }
 
     function buscarLibros($curso) {
-        //VALIDAR
         
         $datos = $this->objMreserva->buscarLibros($curso);
 
         return $datos;
+        
+    }
+
+    function obtenerClases($curso) {
+
+        $clases = $this->objMreserva->obtenerClases($curso);
+
+        return $clases;
+
     }
 
 }

@@ -41,11 +41,29 @@ class Mreservaadmin {
                 // Procesar el resultado si es necesario
                 $libros = [];
                 foreach ($resultado as $fila) {
-                    $libros[] = $fila; // resultados en array
+                    $libros[] = $fila; // resultados de libros en array
                 }
 
                 return $libros;
             }
+
+    }
+
+    function obtenerClases($curso) {
+
+        $sql = "SELECT * FROM clases WHERE idCurso = '$curso'";
+
+        $resultado = $this->conexion->query($sql);
+
+        if ($resultado && $resultado->num_rows > 0) {
+            // Procesar el resultado si es necesario
+            $clases = [];
+            foreach ($resultado as $fila) {
+                $clases[] = $fila; // resultados de clase en array
+            }
+
+            return $clases;
+        }
 
     }
 

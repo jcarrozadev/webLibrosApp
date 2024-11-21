@@ -97,7 +97,7 @@ button {
 .modal-content {
     background-color: var(--color-admin-oscuro);
     padding: 20px;
-    width: 300px;
+    width: 650px;
     text-align: center;
     border-radius: 8px;
 }

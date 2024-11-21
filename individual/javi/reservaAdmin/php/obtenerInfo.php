@@ -6,15 +6,10 @@ $curso = $_POST['curso'];
 
 if (isset($curso)) {
 
-    //Obtenemos el array de libros y el curso
-    /*session_start();
-    $_SESSION['resultado'] = $libros; // Array de libros guardamos en sesion
-    $_SESSION['curso'] = $curso; // Guardamos curso en sesion
-    */
-
     $objCreservaAdmin = new Creservaadmin();
 
     $libros = $objCreservaAdmin->buscarLibros($curso);
+    $clases = $objCreservaAdmin->obtenerClases($curso);
 
     include '../reservaAdmin.php';
 

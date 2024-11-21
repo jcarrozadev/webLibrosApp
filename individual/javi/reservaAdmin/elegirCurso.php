@@ -17,7 +17,22 @@
     </head>
     <body>
 
-    <?php require_once './php/header.php'; ?>
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="./assets/resources/logo.png" alt="Logo">
+            </a>
+        </div>
+        <nav>
+            <a href="#">Información</a>
+            <a href="#">Formulario</a>
+        </nav>
+        <div class="icono-usuario">
+            <a href="login.html">
+                <img src="./assets/resources/login.png" alt="login">
+            </a>
+        </div>
+    </header>
 
     <main>
         <h1>Reserva de Libros</h1>
@@ -68,7 +83,7 @@
                             <option value="libro2">Libro 2</option>
                             <option value="libro3">Libro 3</option>
                         </select>
-                    </td>
+                    </td>   
                     <td><button class="btn-doc">Ver</button></td>
                     <td>21/12/99</td>
                     <td><input type="checkbox"></td>
@@ -293,7 +308,7 @@
     <div id="modal" class="modal">
         <div class="modal-content">
             <h2>Reserva de Libros</h2>
-            <form method="post" action="./php/obtenerLibros.php">
+            <form method="post" action="./php/obtenerInfo.php">
                 <label for="curso">Curso:</label>
                 <select name="curso">
                     <option selected disabled hidden></option>
