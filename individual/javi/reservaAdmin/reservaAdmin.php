@@ -19,7 +19,7 @@
     <body>
 
     <?php include '../php/vistas/header.php'; ?>
-
+    <p id="resultado"></p>
     <main>
         <h1>Reserva de Libros</h1>
         <div class="acciones">
@@ -263,18 +263,18 @@
     <div id="modal" class="modal show">
         <div class="modal-content">
             <h2 class="modal-title">Reserva de Libros</h2>
-            <form method="post" action="./php/reservar.php">
+            <form id="formReservar" method="post" action="./reservar.php">
                 <label for="dni">DNI:</label>
-                <input type="text" name="dni" placeholder="800839201A">
+                <input type="text" name="dni" placeholder="800839201A" id="dni">
                 <label for="nombreTutor">Nombre Tutor:</label>
-                <select name="nombreTutor">
+                <select name="nombreTutor" id="tutor">
                     <option selected disabled hidden>Selecciona el tutor</option>
                     <?php
                         
                         if (isset($tutores)) {
                             $resultado = $tutores;
                             foreach ($resultado as $fila) {
-                                $valor = $fila['idTutor'];
+                                $valor = $fila['nombre'];
                                     echo "<option value=\"$valor\">" . $fila['nombre'] . "</option>";
                             }
                         } else {
@@ -283,18 +283,18 @@
                     ?>
                 </select>
                 <label for="correo">Correo:</label>
-                <input type="email" name="correo" placeholder="reserva@correo.com">
+                <input type="email" name="correo" placeholder="reserva@correo.com" id="correo">
                 <label for="nombreAlumno">Nombre Completo Alumno:</label>
-                <input type="text" name="nombreAlumno" placeholder="Introduce nombre alumno">
+                <input type="text" name="nombreAlumno" placeholder="Introduce nombre alumno" id="nombreAlumno">
                 <label for="clases">Clase:</label>
-                <select name="clases">
+                <select name="clases" id="clases">
                     <option selected disabled hidden>Selecciona la clase perteneciente</option>
                     <?php
                         
                         if (isset($clases)) {
                             $resultado = $clases;
                             foreach ($resultado as $fila) {
-                                $valorClase = $curso . $fila['letraClase'];
+                                $valorClase = $fila['letraClase'];
                                     echo "<option value=\"$valorClase\">" . $fila['nombre'] . "</option>";
                             }
                         } else {
@@ -303,7 +303,7 @@
                     ?>
                 </select>
                 <label class="modal-label">Libro a reservar:</label>
-                <div class="checkbox-group">
+                <div class="checkbox-group" id="libros">
                     <?php
                         if (isset($libros)) {
                             $resultado = $libros;
@@ -311,7 +311,7 @@
                                 echo "
                                 <label>
                                     ".$fila['libro']." (".$fila['editorial'].") | ".$fila['precio']."
-                                    <input type='checkbox' name='".$fila['libro']."' class='modal-checkbox'>
+                                    <input type='checkbox' name='librosSeleccionados[]' value=".$fila." class='modal-checkbox'>
                                 </label>";
                             }
                         } else {
@@ -324,22 +324,16 @@
                     <input type="file" id="documento" name="documento" class="modal-file-input">
                 </div>
                 <?php
-                    echo '<input type="text" value='.$curso.'>';
+                    echo '<input type="text"value='.$_POST['curso'].' name="curso" hidden>';
                 ?>
                 <div class="modal-buttons">
                     <button type="button" class="modal-button modal-cancel" onclick="toggleModal()"><a href="../elegirCurso.php" style="color:black;text-decoration:none;">Cancelar</a></button>
-                    <button type="submit" class="modal-button modal-reserve">Reservar</button>
+                    <button type="submit" class="modal-button modal-reserve" id="reservar">Reservar</button>
                 </div>
             </form>
         </div>
     </div> 
-
-    <script>
-        function toggleModal() {
-            const modal = document.getElementById('modal');
-            modal.classList.toggle('show');
-        }
-    </script>
+    <script src="./js/errores.js"></script>
 
     </body>
 </html>

@@ -241,3 +241,7 @@ button {
 .modal-buttons > button:hover {
     opacity: 0.8;
 }
+
+#resultado {
+    color: var(--color-admin);
+}

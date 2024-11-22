@@ -1,5 +1,7 @@
 <?php
 
+use PhpOffice\PhpSpreadsheet\Calculation\DateTimeExcel\Date;
+
 class Mreservaadmin {
 
     private $conexion;
@@ -16,7 +18,7 @@ class Mreservaadmin {
         $controlador->report_mode = MYSQLI_REPORT_OFF;
     }
 
-    function buscarLibros($curso) {
+    public function buscarLibros($curso) {
         
         $sql = "SELECT 
                     c.nombre AS curso,
@@ -24,6 +26,7 @@ class Mreservaadmin {
                     a.nombre AS asignatura,
                     l.nombre AS libro,
                     l.precio AS precio,
+                    l.isbn AS isbn,
                     e.nombre AS editorial
                 FROM 
                     Clases cl
@@ -52,7 +55,7 @@ class Mreservaadmin {
 
     }
 
-    function obtenerClases($curso) {
+    public function obtenerClases($curso) {
 
         $sql = "SELECT * FROM clases WHERE idCurso = '$curso'";
 
@@ -70,7 +73,7 @@ class Mreservaadmin {
 
     }
 
-    function obtenerTutor() {
+    public function obtenerTutor() {
 
         $sql = "SELECT * FROM Tutores";
 
@@ -85,6 +88,38 @@ class Mreservaadmin {
             return $tutores;
         }
 
+    }
+
+    public function guardarReservaLibros($idReserva, $isbnLibros) {
+        if (!empty($isbnLibros)) {
+            foreach ($isbnLibros as $isbn) {
+                $sqlLibros = "INSERT INTO reserva_libros (idReserva, isbn, entregado) 
+                              VALUES ('$idReserva', '$isbn', 0);";
+                $this->conexion->query($sqlLibros); // Ejecutamos la consulta para cada libro
+            }
+        }
+    }
+
+    public function hacerReserva($dni,$nombreTutor,$correo,$nombreAlumno,$costeTotal,$clase,$curso,$documento,$libros) {
+
+        $apta = 1;
+        $fechaActual = date("Y-m-d"); // Obtiene la fecha actual en formato "año-mes-día"
+    
+        $sql = "INSERT INTO Reservas (dni, nombreTutor, correo, nombreAlumno, documento, apta, fecha_reserva, coste_total, fecha_registro, idCurso, letraClase)
+                VALUES 
+                        ('$dni', '$nombreTutor', '$correo', '$nombreAlumno', '$documento', $apta, '$fechaActual', $costeTotal, '$fechaActual', '$curso', '$clase');";
+    
+        $this->conexion->query($sql);
+    
+        if ($this->conexion->affected_rows > 0) {
+
+            $idReserva = $this->conexion->insert_id;
+
+            $this->guardarReservaLibros($idReserva, $libros);
+
+            return true;
+        }
+        return false;
     }
 
 }
