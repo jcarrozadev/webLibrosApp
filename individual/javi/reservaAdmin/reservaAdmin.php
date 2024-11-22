@@ -263,18 +263,32 @@
     <div id="modal" class="modal show">
         <div class="modal-content">
             <h2 class="modal-title">Reserva de Libros</h2>
-            <form>
+            <form method="post" action="./php/reservar.php">
                 <label for="dni">DNI:</label>
-                <input type="text" name="dni">
-                <label for="nombreTutor">Nombre Completo Tutor:</label>
-                <input type="text" name="nombreTutor">
+                <input type="text" name="dni" placeholder="800839201A">
+                <label for="nombreTutor">Nombre Tutor:</label>
+                <select name="nombreTutor">
+                    <option selected disabled hidden>Selecciona el tutor</option>
+                    <?php
+                        
+                        if (isset($tutores)) {
+                            $resultado = $tutores;
+                            foreach ($resultado as $fila) {
+                                $valor = $fila['idTutor'];
+                                    echo "<option value=\"$valor\">" . $fila['nombre'] . "</option>";
+                            }
+                        } else {
+                            echo '<option disabled>No hay datos</option>';
+                       }
+                    ?>
+                </select>
                 <label for="correo">Correo:</label>
-                <input type="email" name="correo">
+                <input type="email" name="correo" placeholder="reserva@correo.com">
                 <label for="nombreAlumno">Nombre Completo Alumno:</label>
-                <input type="text" name="nombreAlumno">
+                <input type="text" name="nombreAlumno" placeholder="Introduce nombre alumno">
                 <label for="clases">Clase:</label>
                 <select name="clases">
-                    <option selected disabled hidden></option>
+                    <option selected disabled hidden>Selecciona la clase perteneciente</option>
                     <?php
                         
                         if (isset($clases)) {
@@ -296,7 +310,7 @@
                             foreach ($resultado as $fila) {
                                 echo "
                                 <label>
-                                    ".$fila['libro']."
+                                    ".$fila['libro']." (".$fila['editorial'].") | ".$fila['precio']."
                                     <input type='checkbox' name='".$fila['libro']."' class='modal-checkbox'>
                                 </label>";
                             }
@@ -309,6 +323,9 @@
                 <div class="file-input-group">
                     <input type="file" id="documento" name="documento" class="modal-file-input">
                 </div>
+                <?php
+                    echo '<input type="text" value='.$curso.'>';
+                ?>
                 <div class="modal-buttons">
                     <button type="button" class="modal-button modal-cancel" onclick="toggleModal()"><a href="../elegirCurso.php" style="color:black;text-decoration:none;">Cancelar</a></button>
                     <button type="submit" class="modal-button modal-reserve">Reservar</button>

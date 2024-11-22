@@ -8,19 +8,15 @@ class ReservaAdmin {
     private $nombreAlumno;
     private $documento;
     private $apta;
-    private $fechaReserva;
     private $costeTotal;
     private $idCurso;
     private $letraClase;
 
-    public function __construct($dni, $nombreTutor, $correo, $nombreAlumno, $documento, $fechaReserva, $costeTotal, $idCurso, $letraClase) {
+    public function __construct($dni, $nombreTutor, $correo, $nombreAlumno, $documento, $idCurso, $letraClase) {
         $this->dni = $dni;
         $this->nombreTutor = $nombreTutor;
         $this->correo = $correo;
         $this->nombreAlumno = $nombreAlumno;
-        $this->documento = $documento;
-        $this->fechaReserva = $fechaReserva;
-        $this->costeTotal = $costeTotal;
         $this->idCurso = $idCurso;
         $this->letraClase = $letraClase;
     }

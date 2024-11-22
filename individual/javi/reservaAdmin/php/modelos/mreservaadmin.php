@@ -19,21 +19,24 @@ class Mreservaadmin {
     function buscarLibros($curso) {
         
         $sql = "SELECT 
-                c.nombre AS curso,
-                l.nombre AS libro,
-                l.precio AS precio,
-                a.nombre AS asignatura
-            FROM 
-                Clases cl
-                INNER JOIN clases_asignaturas ca ON cl.idCurso = ca.idCurso AND cl.letraClase = ca.letraClase
-                INNER JOIN Asignaturas a ON ca.idAsignatura = a.idAsignatura
-                INNER JOIN Libros l ON a.idAsignatura = l.idAsignatura
-                INNER JOIN Cursos c ON cl.idCurso = c.idCurso
-            WHERE 
-                cl.idCurso = '$curso'
-            ORDER BY 
-                l.nombre;
-            ";
+                    c.nombre AS curso,
+                    cl.letraClase AS clase,
+                    a.nombre AS asignatura,
+                    l.nombre AS libro,
+                    l.precio AS precio,
+                    e.nombre AS editorial
+                FROM 
+                    Clases cl
+                    INNER JOIN clases_asignaturas ca ON cl.idCurso = ca.idCurso AND cl.letraClase = ca.letraClase
+                    INNER JOIN Asignaturas a ON ca.idAsignatura = a.idAsignatura
+                    INNER JOIN Libros l ON a.idAsignatura = l.idAsignatura
+                    INNER JOIN Editoriales e ON l.idEditorial = e.idEditorial
+                    INNER JOIN Cursos c ON cl.idCurso = c.idCurso
+                WHERE 
+                    cl.idCurso = '$curso'
+                ORDER BY 
+                    l.nombre;
+                ";
 
             $resultado = $this->conexion->query($sql);
 
@@ -63,6 +66,23 @@ class Mreservaadmin {
             }
 
             return $clases;
+        }
+
+    }
+
+    function obtenerTutor() {
+
+        $sql = "SELECT * FROM Tutores";
+
+        $resultado = $this->conexion->query($sql);
+
+        if ($resultado && $resultado->num_rows > 0) {
+            $tutores = [];
+            foreach($resultado as $fila) {
+                $tutores[] = $fila;
+            }
+
+            return $tutores;
         }
 
     }

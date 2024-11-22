@@ -10,6 +10,7 @@ if (isset($curso)) {
 
     $libros = $objCreservaAdmin->buscarLibros($curso);
     $clases = $objCreservaAdmin->obtenerClases($curso);
+    $tutores = $objCreservaAdmin->obtenerTutor();
 
     include '../reservaAdmin.php';
 

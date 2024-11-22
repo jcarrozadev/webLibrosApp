@@ -27,4 +27,12 @@ class Creservaadmin {
 
     }
 
+    function obtenerTutor() {
+
+        $tutores = $this->objMreserva->obtenerTutor();
+
+        return $tutores;
+        
+    }
+
 }
